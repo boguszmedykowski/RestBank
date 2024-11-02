@@ -63,4 +63,8 @@ public class AccountRepository {
             ps.setInt(index, id);
         });
     }
+
+    public void updateBallance(int id, double balance) {
+        jdbcTemplate.update("UPDATE Account SET balance = ? WHERE id = ?", balance, id);
+    }
 }
