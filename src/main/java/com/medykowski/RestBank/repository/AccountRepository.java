@@ -1,6 +1,7 @@
 package com.medykowski.RestBank.repository;
 
 import com.medykowski.RestBank.model.Account;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -23,13 +24,13 @@ public class AccountRepository {
                 BeanPropertyRowMapper.newInstance(Account.class), id);
     }
 
-    public void createAccount(Account account) {
+    public void createAccount(@NotNull Account account) {
         jdbcTemplate.update("INSERT INTO Account (id, first_name, last_name, balance) VALUES (?, ?, ?, ?)",
                 account.getId(), account.getFirstName(), account.getLastName(), account.getBalance());
     }
 
 
-    public void updateAccount(int id, Account account) {
+    public void updateAccount(int id, @org.jetbrains.annotations.NotNull Account account) {
         StringBuilder sql = new StringBuilder("UPDATE Account SET ");
         boolean first = true;
 
