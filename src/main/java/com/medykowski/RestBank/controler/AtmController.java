@@ -1,6 +1,6 @@
 package com.medykowski.RestBank.controler;
 
-import com.medykowski.RestBank.dto.WithdrawRequest;
+import com.medykowski.RestBank.dto.AtmRequest;
 import com.medykowski.RestBank.service.Atm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +18,12 @@ public class AtmController {
     }
 
     @PostMapping("/withdraw/{id}")
-    public double withdraw(@RequestBody WithdrawRequest request, @PathVariable("id") int id) {
+    public double withdraw(@RequestBody AtmRequest request, @PathVariable("id") int id) {
         return atmService.withdraw(request.getAmount(), id);
+    }
+
+    @PostMapping("/deposit/{id}")
+    public double deposit(@RequestBody AtmRequest request, @PathVariable("id") int id) {
+        return atmService.deposit(request.getAmount(), id);
     }
 }

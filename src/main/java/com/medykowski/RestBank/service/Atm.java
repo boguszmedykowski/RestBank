@@ -10,6 +10,10 @@ public class Atm {
     @Autowired
     AccountRepository accountRepository;
 
+    public double getBalance(int id) {
+        return accountRepository.getAccountById(id).getBalance();
+    }
+
     public double withdraw(double amount, int id) {
         double balance = accountRepository.getAccountById(id).getBalance();
         if (balance < amount) {
@@ -19,7 +23,9 @@ public class Atm {
         return balance - amount;
     }
 
-    public double getBalance(int id) {
-        return accountRepository.getAccountById(id).getBalance();
+    public double deposit(double amount, int id) {
+        double balance = accountRepository.getAccountById(id).getBalance();
+        accountRepository.updateBallance(id, balance + amount);
+        return balance + amount;
     }
 }

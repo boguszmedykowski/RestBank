@@ -1,6 +1,6 @@
 package com.medykowski.RestBank.dto;
 
-public class WithdrawRequest {
+public class AtmRequest {
     private double amount;
 
     public double getAmount() {
