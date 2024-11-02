@@ -17,4 +17,14 @@ public class AccountRepository {
         return jdbcTemplate.query("SELECT id, first_name, last_name, balance FROM Account",
                 BeanPropertyRowMapper.newInstance(Account.class));
     }
+
+    public Account getAccountById(int id) {
+        return jdbcTemplate.queryForObject("SELECT id, first_name, last_name, balance FROM Account WHERE id = ?",
+                BeanPropertyRowMapper.newInstance(Account.class), id);
+    }
+
+    public void createAccount(Account account) {
+        jdbcTemplate.update("INSERT INTO Account (id, first_name, last_name, balance) VALUES (?, ?, ?, ?)",
+                account.getId(), account.getFirstName(), account.getLastName(), account.getBalance());
+    }
 }
