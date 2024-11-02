@@ -14,7 +14,7 @@ public class AccountController {
     @Autowired
     AccountRepository accountRepository;
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<Account> getAll() {
         return accountRepository.getAll();
     }
@@ -24,7 +24,7 @@ public class AccountController {
         return accountRepository.getAccountById(id);
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public void createAccount(@RequestBody Account account) {
         accountRepository.createAccount(account);
     }
