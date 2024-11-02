@@ -27,4 +27,39 @@ public class AccountRepository {
         jdbcTemplate.update("INSERT INTO Account (id, first_name, last_name, balance) VALUES (?, ?, ?, ?)",
                 account.getId(), account.getFirstName(), account.getLastName(), account.getBalance());
     }
+
+
+    public void updateAccount(int id, Account account) {
+        StringBuilder sql = new StringBuilder("UPDATE Account SET ");
+        boolean first = true;
+
+        if (account.getFirstName() != null) {
+            sql.append("first_name = ?");
+            first = false;
+        }
+        if (account.getLastName() != null) {
+            if (!first) sql.append(", ");
+            sql.append("last_name = ?");
+            first = false;
+        }
+        if (account.getBalance() != 0) {
+            if (!first) sql.append(", ");
+            sql.append("balance = ?");
+        }
+        sql.append(" WHERE id = ?");
+
+        jdbcTemplate.update(sql.toString(), ps -> {
+            int index = 1;
+            if (account.getFirstName() != null) {
+                ps.setString(index++, account.getFirstName());
+            }
+            if (account.getLastName() != null) {
+                ps.setString(index++, account.getLastName());
+            }
+            if (account.getBalance() != 0) {
+                ps.setDouble(index++, account.getBalance());
+            }
+            ps.setInt(index, id);
+        });
+    }
 }

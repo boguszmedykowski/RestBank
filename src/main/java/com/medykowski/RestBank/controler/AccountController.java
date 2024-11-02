@@ -28,4 +28,9 @@ public class AccountController {
     public void createAccount(@RequestBody Account account) {
         accountRepository.createAccount(account);
     }
+
+    @PatchMapping("/{id}")
+    public void updateAccount(@PathVariable("id") int id, @RequestBody Account account) {
+        accountRepository.updateAccount(id, account);
+    }
 }
