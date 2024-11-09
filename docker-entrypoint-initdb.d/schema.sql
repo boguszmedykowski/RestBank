@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS restbank;
+
+USE restbank;
+
+CREATE TABLE Account (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    firstName VARCHAR(255) NOT NULL,
+    lastName VARCHAR(255) NOT NULL,
+    balance DOUBLE NOT NULL
+);
