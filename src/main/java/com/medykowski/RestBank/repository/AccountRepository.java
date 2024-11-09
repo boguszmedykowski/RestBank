@@ -15,17 +15,17 @@ public class AccountRepository {
     @Autowired
     JdbcTemplate jdbcTemplate;
     public List<Account> getAll() {
-        return jdbcTemplate.query("SELECT id, first_name, last_name, balance FROM Account",
+        return jdbcTemplate.query("SELECT id, firstName, lastName, balance FROM Account",
                 BeanPropertyRowMapper.newInstance(Account.class));
     }
 
     public Account getAccountById(int id) {
-        return jdbcTemplate.queryForObject("SELECT id, first_name, last_name, balance FROM Account WHERE id = ?",
+        return jdbcTemplate.queryForObject("SELECT id, firstName, lastName, balance FROM Account WHERE id = ?",
                 BeanPropertyRowMapper.newInstance(Account.class), id);
     }
 
     public void createAccount(@NotNull Account account) {
-        jdbcTemplate.update("INSERT INTO Account (id, first_name, last_name, balance) VALUES (?, ?, ?, ?)",
+        jdbcTemplate.update("INSERT INTO Account (id, firstName, lastName, balance) VALUES (?, ?, ?, ?)",
                 account.getId(), account.getFirstName(), account.getLastName(), account.getBalance());
     }
 
@@ -35,12 +35,12 @@ public class AccountRepository {
         boolean first = true;
 
         if (account.getFirstName() != null) {
-            sql.append("first_name = ?");
+            sql.append("firstName = ?");
             first = false;
         }
         if (account.getLastName() != null) {
             if (!first) sql.append(", ");
-            sql.append("last_name = ?");
+            sql.append("lastName = ?");
             first = false;
         }
         if (account.getBalance() != 0) {
