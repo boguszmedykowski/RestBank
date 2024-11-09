@@ -1,28 +1,11 @@
-package com.medykowski.RestBank.model;
+package com.medykowski.RestBank.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Entity
-public class Account {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class AccountDTO {
     private String firstName;
     private String lastName;
     private double balance;
 
     // Getters
-    public Long getId() {
-        return id;
-    }
-
     public String getFirstName() {
         return firstName;
     }
@@ -35,11 +18,7 @@ public class Account {
         return balance;
     }
 
-    // Setters (if needed)
-    public void setId(Long id) {
-        this.id = id;
-    }
-
+    // Setters
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }

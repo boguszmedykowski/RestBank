@@ -1,5 +1,6 @@
 package com.medykowski.RestBank.controler;
 
+import com.medykowski.RestBank.dto.AccountDTO;
 import com.medykowski.RestBank.model.Account;
 import com.medykowski.RestBank.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,11 @@ public class AccountController {
     }
 
     @PostMapping("")
-    public void createAccount(@RequestBody Account account) {
+    public void createAccount(@RequestBody AccountDTO accountDTO) {
+        Account account = new Account();
+        account.setFirstName(accountDTO.getFirstName());
+        account.setLastName(accountDTO.getLastName());
+        account.setBalance(accountDTO.getBalance());
         accountRepository.createAccount(account);
     }
 
