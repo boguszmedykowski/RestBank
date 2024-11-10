@@ -7,6 +7,6 @@ or
 docker-compose up --build
 ```
 Dokumentacja swagger dostępna pod adresem
-http://{url}/swagger-ui.html
+http://207.154.192.20:8080/swagger-ui/index.html
 
 
