@@ -18,14 +18,23 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.DO_SSH_KEY }}
 
+      - name: Add server to known_hosts
+        run: |
+          ssh-keyscan -H 207.154.192.20 >> ~/.ssh/known_hosts
+
+      - name: Debug SSH Key
+        run: |
+          ssh-add -l
+          ssh -T root@207.154.192.20
+
       - name: Check SSH Connection
         run: ssh -o StrictHostKeyChecking=no root@207.154.192.20 "echo SSH connection successful"
 
       - name: Deploy to DigitalOcean
         run: |
           ssh -o StrictHostKeyChecking=no root@207.154.192.20 << 'EOF'
-            cd /path/to/your/project
             git pull origin main
+            cd RestBank
             docker-compose down
             docker-compose up --build -d
           EOF
