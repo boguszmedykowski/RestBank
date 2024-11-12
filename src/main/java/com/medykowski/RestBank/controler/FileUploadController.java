@@ -1,12 +1,5 @@
 package com.medykowski.RestBank.controler;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-package com.medykowski.RestBank.controler;
-
 import com.medykowski.RestBank.entity.XmlFile;
 import com.medykowski.RestBank.repository.XmlFileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
