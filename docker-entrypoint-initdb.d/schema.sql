@@ -8,3 +8,8 @@ CREATE TABLE Account (
     lastName VARCHAR(255) NOT NULL,
     balance DOUBLE NOT NULL
 );
+
+CREATE TABLE XmlFile (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    content LONGBLOB
+);
