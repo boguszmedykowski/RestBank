@@ -1,6 +1,9 @@
 package com.medykowski.RestBank.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class XmlFile {
@@ -9,7 +12,6 @@ public class XmlFile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Lob
     private byte[] content;
 
     // Getters and setters

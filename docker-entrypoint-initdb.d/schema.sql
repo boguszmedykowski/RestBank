@@ -9,7 +9,3 @@ CREATE TABLE Account (
     balance DOUBLE NOT NULL
 );
 
-CREATE TABLE XmlFile (
-    id BIGINT PRIMARY KEY AUTO_INCREMENT,
-    content LONGBLOB
-);
