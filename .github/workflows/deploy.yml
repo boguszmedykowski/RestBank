@@ -36,5 +36,5 @@ jobs:
             git pull origin main
             cd RestBank
             docker-compose down
-            docker-compose up --build -d
+            docker-compose up --build --no-cache -d
           EOF
