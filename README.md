@@ -6,7 +6,7 @@ docker run --name restbank-mysql -e MYSQL_ROOT_PASSWORD=root -v $(pwd)/docker-en
 or
 docker-compose up --build
 ```
-Dokumentacja swagger dostępna pod adresem
+Dokumentacja Swagger dostępna pod adresem:
 http://207.154.192.20:8080/swagger-ui/index.html
 
 
