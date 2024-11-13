@@ -8,3 +8,4 @@ CREATE TABLE Account (
     lastName VARCHAR(255) NOT NULL,
     balance DOUBLE NOT NULL
 );
+
