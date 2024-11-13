@@ -36,5 +36,6 @@ jobs:
             git pull origin main
             cd RestBank
             docker-compose down
-            docker-compose up --build --no-cache -d
+            docker-compose build --no-cache  # Rebuild without cache
+            docker-compose up -d             # Start containers in detached mode
           EOF
